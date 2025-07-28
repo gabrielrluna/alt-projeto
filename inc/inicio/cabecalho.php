@@ -1,3 +1,5 @@
+<?php include("../../bibliotecas/SQLHelper.php"); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,18 +8,20 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../style/style.css">
 
     <title>Projeto Alt</title>
 </head>
+
+
 <body>
     <div class="menu-lateral">
         <div>
-            <img src="assets/logo/487239370_841478978171287_3989743103304765641_n.jpg" class="img-fluid"  alt="" style="margin: 10px; max-width: 50%;">
+            <img src="../../assets/logo/487239370_841478978171287_3989743103304765641_n.jpg" class="img-fluid"  alt="" style="margin: 10px; max-width: 50%;">
         </div>
         <nav class="nav flex-column">
             <!-- Menu Dashboard  -->
-            <a href="index.php" class="nav-link">
+            <a href="../inicio/inicio.php" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-house-fill"></i>
                 </span>
@@ -29,7 +33,7 @@
                     <i class="bi bi-grid-fill"></i>
                 </span>
                 <span class="descricao">Dashboard</span>
-            </a>
+            </a> 
             <!-- Menu Usuarios  -->            
             <a href="#" class="nav-link">
                 <span class="icon">
@@ -54,25 +58,25 @@
                 <span class="descricao">Usuários <i class="bi bi-caret-down-fill"></i></span>
             </a>
             <div class="sub-menu collapse" id="usuarios">
-                <a href="#" class="nav-link">
+                <a href="../adm_usuarios/ver_usuarios.php" class="nav-link">
                     <span class="icon">
                         <i class="bi bi-person-down"></i>
                     </span>
                     <span class="descricao">Ver Usuários</span>
                 </a>
-                <a href="#" class="nav-link">
+                <a href="../adm_usuarios/add_usuario.php" class="nav-link">
                     <span class="icon">
                         <i class="bi bi-person-add"></i>
                     </span>
                     <span class="descricao">Criar Usuário</span>
                 </a>
-                <a href="#" class="nav-link">
+                <a href="../adm_usuarios/edit_usuario.php" class="nav-link">
                     <span class="icon">
                         <i class="bi bi-person-gear"></i>
                     </span>
                     <span class="descricao">Editar Usuário</span>
                 </a>   
-                <a href="#" class="nav-link">
+                <a href="../adm_usuarios/exc_usuario.php" class="nav-link">
                     <span class="icon">
                         <i class="bi bi-person-dash"></i>
                     </span>
@@ -81,7 +85,7 @@
             </div>
 
             <!-- Menu Dashboard  -->
-                <a href="configuracoes.php" class="nav-link">
+                <a href="../adm_configuracoes/configuracoes.php" class="nav-link">
                     <span class="icon">
                         <i class="bi bi-gear-fill"></i>
                     </span>
@@ -91,4 +95,4 @@
     </div>
 
     
-    <main class="principal">
+    <main class="principal">    
