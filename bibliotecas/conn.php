@@ -23,7 +23,7 @@ abstract class Conexao{
 			$this->_porta = "3306";
 			$this->_dbUser = "root";
 			$this->_dbPass = "";	
-			$this->_database = "alt";
+			$this->_database = "alt_teste";
             
 			$this->_tipoDB = $pBanco;
         }

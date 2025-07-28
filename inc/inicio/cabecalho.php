@@ -1,4 +1,10 @@
-<?php include("../../bibliotecas/SQLHelper.php"); ?>
+<?php
+include_once("../../bibliotecas/conn.php");
+include_once("../../bibliotecas/funcoes.php");
+include_once("../../bibliotecas/SQLHelper.php");
+$obj = new SQLHelper(4);
+include("ev.php");
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

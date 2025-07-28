@@ -16,21 +16,36 @@ include "../inicio/cabecalho.php";
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>José da Silva</td>
-                <td>Faxineiro</td>
-                <td>10</td>
-                <td>3</td>
-                <td>
-                    <button class="btn btn-button btn-danger">Excluir</button>
-                    <button class="btn btn-button btn-primary">Editar</button>
-                </td>
-            </tr>
+
+                <?php
+                $usuarios = $obj->PesquisaLoop("usuarios", "id, nome, funcao");
+                foreach($usuarios as $usuario){?>
+                <tr>
+                    <th scope="row"><?php echo $usuario['id'] ?></th>
+                    <td><?php echo $usuario['nome'] ?></td>
+                    <td><?php echo $usuario['funcao'] ?></td>
+                    <td>10</td>
+                    <td>3</td>
+                    <td>
+                        <button class="btn btn-button btn-danger" id="exc-<?php echo $usuario['id'] ?>" onclick="excluirUsuario(<?php echo $usuario['id'] ?>)">Excluir</button>
+                        <button class="btn btn-button btn-primary" id="edit-<?php echo $usuario['id'] ?>" onclick="editarUsuario(<?php echo $usuario['id'] ?>)">Editar</button>
+                    </td>
+                </tr>
+                <?php } ?>
+
         </tbody>        
     </table>
 
+    <script>
+        function excluirUsuario(id){
+            alert(id)
+        }
 
+        function editarUsuario(id){
+            alert(id)
+
+        }
+    </script>
 
 
 
