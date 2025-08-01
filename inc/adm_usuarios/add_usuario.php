@@ -10,39 +10,61 @@ include "../inicio/cabecalho.php";
                 <input type="text" class="form-control" name="nomeForm" id="nomeForm">
                 <small class="d-none" id="erro_nome" style="color: red">Preencha o campo</small>
             </div>
-            <div class="mb-2">
-                <label for="cpf" class="form-label">CPF</label>
-                <input type="text" class="form-control" name="cpfForm" id="cpfForm" >
-                <small class="d-none" id="erro_cpf" style="color: red">Preencha o campo</small>
-
+            <div class="row">
+                <div class="mb-2 col-12 col-lg-4">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" class="form-control" name="cpfForm" id="cpfForm" >
+                    <small class="d-none" id="erro_cpf" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col-12 col-lg-3">
+                    <label for="cpf" class="form-label">Estado</label>
+                    <select class="form-select" name="estadoForm" id="estadoForm" aria-label="Default select example">
+                        <option selected disabled>Selecione o Estado</option>
+                        <option value="1">Web Designer</option>
+                        <option value="2">Gestor de Tráfego Pago</option>
+                        <option value="3">Copywritter</option>
+                        <option value="4">Outro</option>
+                    </select>
+                </div>
+                <div class="mb-2 col-12 col-lg-5">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" name="cidadeForm" id="cidadeForm" >
+                    <small class="d-none" id="erro_cidade" style="color: red">Preencha o campo</small>
+                </div>
             </div>
 
-            <div class="mb-2">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" name="telefoneForm" id="telefoneForm">
-                <small class="d-none" id="erro_telefone" style="color: red">Preencha o campo</small>
+            <div class="row">
+                <div class="mb-2 col">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" name="telefoneForm" id="telefoneForm">
+                    <small class="d-none" id="erro_telefone" style="color: red">Preencha o campo</small>
 
-            </div>
-            <div class="mb-2">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="emailForm" id="emailForm">
-                <small class="d-none" id="erro_email" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" name="emailForm" id="emailForm">
+                    <small class="d-none" id="erro_email" style="color: red">Preencha o campo</small>
 
+                </div>
             </div>
-            <div class="mb-2">
-                <label for="dataNasc" class="form-label">Data de Nascimento</label>
-                <input type="date" class="form-control" name="dataNascForm" id="dataNascForm">
-                <small class="d-none" id="erro_dt_nasc" style="color: red">Preencha o campo</small>
 
-            </div>
-            <div class="mb-2">
-                <select class="form-select" name="funcaoForm" id="funcaoForm" aria-label="Default select example">
-                    <option selected disabled>Selecione a Função</option>
-                    <option value="1">Web Designer</option>
-                    <option value="2">Gestor de Tráfego Pago</option>
-                    <option value="3">Copywritter</option>
-                    <option value="4">Outro</option>
-                </select>
+            <div class="row">
+                <div class="mb-2 col">
+                    <label for="dataNasc" class="form-label">Data de Nascimento</label>
+                    <input type="date" class="form-control" name="dataNascForm" id="dataNascForm">
+                    <small class="d-none" id="erro_dt_nasc" style="color: red">Preencha o campo</small>
+
+                </div>
+                <div class="mb-2 col">
+                    <label for="funcaoNasc" class="form-label">Função</label>
+                    <select class="form-select" name="funcaoForm" id="funcaoForm" aria-label="Default select example">
+                        <option selected disabled>Selecione a Função</option>
+                        <option value="1">Web Designer</option>
+                        <option value="2">Gestor de Tráfego Pago</option>
+                        <option value="3">Copywritter</option>
+                        <option value="4">Outro</option>
+                    </select>
+                </div>
             </div>
 
             <button type="button" class="btn btn-primary" id="btnForm" onclick="validarForm()">Criar Usuário</button>
@@ -121,7 +143,7 @@ include "../inicio/cabecalho.php";
                     $('#alertModal').on('hidden.bs.modal', function () {ev("ver_usuarios.php")});
                 } else {
                     ativarModalAlert("Atenção!", "Ocorreu algum erro inesperado, tente novamente.");
-                    desbloquearBotao("#btnForm");
+                    // desbloquearBotao("#btnForm");
                 }
             }
         });

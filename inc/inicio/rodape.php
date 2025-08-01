@@ -22,6 +22,30 @@
             </div>
         </div>
         <!-- Final do MODAL ALERT -->
+
+
+        
+        <!-- MODAL PERGUNTA - Realmente Deseja Excluir -->
+        <div class="modal fade" id="perguntaModal" tabindex="-1" role="dialog" aria-labelledby="perguntaModal-Titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="perguntaModal-Titulo">Atenção !!!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span id="perguntaModal-Mensagem"> ... </span>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" id="pSim" data-bs-dismiss="modal" aria-label="Close" class="btn btn-sm btn-success px-3">Sim</button>
+                        <button type="button" class="btn btn-sm btn-danger px-3" data-bs-dismiss="modal" aria-label="Close">Não</button>
+
+                        <!-- <button data-dismiss="modal" aria-label="Close" class="">Não</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim Modal Pergunta  -->
         
 
         <script>
@@ -58,6 +82,38 @@
                     $('#alertModal-Mensagem').html("Existem campos obrigatórios no formulário que ainda não foram preenchidos.");
                 }
                 $('#alertModal').modal('show');
+            }
+
+
+
+            // Ativar MODAL PERGUNTA
+            function ativarModalPergunta (sIdElemento, tr, pergunta) {
+                $('#perguntaModal-Mensagem').html(pergunta);
+                $("#pSim").attr("onclick", ("f_excluir('" + sIdElemento + "','" + tr + "')"));
+                $('#perguntaModal').modal('show');
+            }
+
+            function ativarModalPerguntaSenha (sIdElemento, tr, pergunta) {
+                $('#perguntaModal-Mensagem').html(pergunta);
+                $("#pSim").attr("onclick", ("f_senha('" + sIdElemento + "','" + tr + "')"));
+                $('#perguntaModal').modal('show');
+            }
+
+            function ativarModalDesativar (sIdElemento, conteudo, pergunta, numero) {
+                $('#perguntaModal-Mensagem').html(pergunta);
+                $("#pSim").attr("onclick", ("f_desativar('" + sIdElemento + "','" + conteudo + "','"+numero+"')"));
+                $('#perguntaModal').modal('show');
+            }	
+
+            function modalPergunta (pergunta, minhaFuncao) {
+                $('#perguntaModal-Mensagem').html(pergunta);
+                $("#pSim").attr("onclick", (minhaFuncao));
+                $('#perguntaModal').modal('show');
+            }
+
+            // Desativar MODAL PERGUNTA
+            function desativarModalPergunta () {
+                $('#perguntaModal').modal('hiden');
             }
             </script>
 
