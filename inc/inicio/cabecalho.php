@@ -26,7 +26,7 @@ include("ev.php");
             <img src="../../assets/logo/487239370_841478978171287_3989743103304765641_n.jpg" class="img-fluid"  alt="" style="margin: 10px; max-width: 50%;">
         </div>
         <nav class="nav flex-column">
-            <!-- Menu Dashboard  -->
+            <!-- Menu Início  -->
             <a href="../inicio/inicio.php" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-house-fill"></i>
@@ -40,20 +40,46 @@ include("ev.php");
                 </span>
                 <span class="descricao">Dashboard</span>
             </a> 
-            <!-- Menu Usuarios  -->            
-            <a href="#" class="nav-link">
+            <!-- Menu Projetos  -->            
+            <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#projetos" aria-expanded="false" aria-controls="projetos">
                 <span class="icon">
-                    <i class="bi bi-people-fill"></i>
+                    <i class="bi bi-clipboard2-fill"></i>
                 </span>
-                <span class="descricao">Usuarios</span>
+                <span class="descricao">Projetos <i class="bi bi-caret-down-fill"></i></span>
             </a>
+            <div class="sub-menu collapse" id="projetos">
+                <a href="index.php" class="nav-link">
+                    <span class="icon">
+                        <i class="bi bi-clipboard2-fill"></i>
+                    </span>
+                    <span class="descricao">Ver Projetos</span>
+                </a>
+                <a href="../adm_projetos/add_projeto.php" class="nav-link">
+                    <span class="icon">
+                        <i class="bi bi-clipboard2-plus-fill"></i>
+                    </span>
+                    <span class="descricao">Criar Projeto</span>
+                </a>
+                <a href="../adm_usuarios/edit_usuario.php" class="nav-link">
+                    <span class="icon">
+                        <i class="bi bi-person-gear"></i>
+                    </span>
+                    <span class="descricao">Editar Projeto</span>
+                </a>   
+                <a href="../adm_usuarios/exc_usuario.php" class="nav-link">
+                    <span class="icon">
+                        <i class="bi bi-person-dash"></i>
+                    </span>
+                    <span class="descricao">Excluir Projeto</span>
+                </a>                
+            </div>
 
-            <!-- Menu Dashboard  -->
+            <!-- Menu Avisos  -->
             <a href="#" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-bell-fill"></i>
                 </span>
-                <span class="descricao">Notifications</span>
+                <span class="descricao">Avisos</span>
             </a>
 
             <!-- Menu Usuarios  -->
