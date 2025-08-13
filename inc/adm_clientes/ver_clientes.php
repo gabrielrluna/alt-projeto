@@ -4,10 +4,10 @@ include "../inicio/cabecalho.php";
 
     <div class="row">
         <div class="col-6">
-            <h2>Lista de Usuários</h2>
+            <h2>Lista de Clientes</h2>
         </div>
         <div class="col-6">
-            <a class="btn btn-primary" href="#">Adicionar usuário</a>
+            <a class="btn btn-primary" href="#">Adicionar Cliente</a>
         </div>    
     </div>
     <hr>
@@ -36,31 +36,34 @@ include "../inicio/cabecalho.php";
          <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Usuário</th>
-                <th scope="col">Função</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Cidade</th>
+                <th scope="col">Nome Fantasia</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">Responsável</th>
+                <th scope="col">Telefone</th>
                 <th scope="col">Projetos Concluídos</th>
                 <th scope="col">Projetos em Andamento</th>
+                <th scope="col">Situação</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
 
                 <?php
-                $usuarios = $obj->PesquisaLoop("usuarios INNER JOIN funcoes ON usuarios.id_funcao = funcoes.id_funcao", "usuarios.id, usuarios.nome, usuarios.id_funcao, funcoes.funcao, usuarios.estado, usuarios.cidade");
-                foreach($usuarios as $usuario){?>
+                $clientes = $obj->PesquisaLoop("clientes", "id_cliente, nome_fantasia, cnpj, responsavel, tel, email, situacao");
+                foreach($clientes as $cliente){?>
                 <tr class="align-middle">
-                    <th scope="row"><?php echo $usuario['id'] ?></th>
-                    <td><?php echo $usuario['nome'] ?></td>
-                    <td><?php echo $usuario['funcao'] ?></td>
-                    <td><?php echo $usuario['estado'] ?></td>
-                    <td><?php echo $usuario['cidade'] ?></td>
+                    <th scope="row"><?php echo $cliente['id_cliente'] ?></th>
+                    <td><?php echo $cliente['nome_fantasia'] ?></td>
+                    <td><?php echo $cliente['cnpj'] ?></td>
+                    <td><?php echo $cliente['responsavel'] ?></td>
+                    <td><?php echo $cliente['tel'] ?></td>
                     <td>10</td>
                     <td>3</td>
+                    <td><?php echo $cliente['situacao'] ?></td>
+
                     <td>
-                        <button class="btn btn-button btn-danger" id="exc-<?php echo $usuario['id'] ?>" onclick="excluirUsuario(<?php echo $usuario['id'] ?>)">Excluir</button>
-                        <button class="btn btn-button btn-primary" id="edit-<?php echo $usuario['id'] ?>" onclick="editarUsuario(<?php echo $usuario['id'] ?>)">Editar</button>
+                        <button class="btn btn-button btn-danger" id="exc-<?php echo $cliente['id_cliente'] ?>" onclick="excluirCliente(<?php echo $cliente['id_cliente'] ?>)">Excluir</button>
+                        <button class="btn btn-button btn-primary" id="edit-<?php echo $cliente['id_cliente'] ?>" onclick="editarCliente(<?php echo $cliente['id_cliente'] ?>)">Editar</button>
                     </td>
                 </tr>
                 <?php } ?>

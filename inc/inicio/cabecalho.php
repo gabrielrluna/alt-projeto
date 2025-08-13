@@ -27,7 +27,7 @@ include("ev.php");
         </div>
         <nav class="nav flex-column">
             <!-- Menu Início  -->
-            <a href="../inicio/inicio.php" class="nav-link">
+            <a href="../inicio/index.php" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-house-fill"></i>
                 </span>
@@ -43,20 +43,20 @@ include("ev.php");
             <!-- Menu Projetos  -->            
             <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#projetos" aria-expanded="false" aria-controls="projetos">
                 <span class="icon">
-                    <i class="bi bi-clipboard2-fill"></i>
+                    <i class="bi bi-folder-fill"></i>
                 </span>
                 <span class="descricao">Projetos <i class="bi bi-caret-down-fill"></i></span>
             </a>
             <div class="sub-menu collapse" id="projetos">
                 <a href="index.php" class="nav-link">
                     <span class="icon">
-                        <i class="bi bi-clipboard2-fill"></i>
+                        <i class="bi bi-folder-symlink"></i>
                     </span>
                     <span class="descricao">Ver Projetos</span>
                 </a>
                 <a href="../adm_projetos/add_projeto.php" class="nav-link">
                     <span class="icon">
-                        <i class="bi bi-clipboard2-plus-fill"></i>
+                        <i class="bi bi-folder-plus"></i>
                     </span>
                     <span class="descricao">Criar Projeto</span>
                 </a>
@@ -72,6 +72,28 @@ include("ev.php");
                     </span>
                     <span class="descricao">Excluir Projeto</span>
                 </a>                
+            </div>
+
+            <!-- Menu Clientes  -->            
+            <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#clientes" aria-expanded="false" aria-controls="clientes">
+                <span class="icon">
+                    <i class="bi bi-clipboard2-fill"></i>
+                </span>
+                <span class="descricao">Clientes <i class="bi bi-caret-down-fill"></i></span>
+            </a>
+            <div class="sub-menu collapse" id="clientes">
+                <a href="../adm_clientes/ver_clientes.php" class="nav-link">
+                    <span class="icon">
+                        <i class="bi bi-clipboard2-fill"></i>
+                    </span>
+                    <span class="descricao">Ver Clientes</span>
+                </a>
+                <a href="../adm_clientes/add_cliente.php" class="nav-link">
+                    <span class="icon">
+                        <i class="bi bi-clipboard2-plus-fill"></i>
+                    </span>
+                    <span class="descricao">Criar Cliente</span>
+                </a>             
             </div>
 
             <!-- Menu Avisos  -->

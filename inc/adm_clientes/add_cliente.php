@@ -4,17 +4,41 @@ include "../inicio/cabecalho.php";
 
     <h2>Adicionar Usuário</h2>
     <div>
-        <form action="add_usuario2.php" method="POST" id="enviaForm">
-            <div class="mb-2">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" name="nomeForm" id="nomeForm">
-                <small class="d-none" id="erro_nome" style="color: red">Preencha o campo</small>
+        <form action="add_cliente2.php" method="POST" id="enviaForm">
+            <div class="row">
+                <div class="mb-2 col">
+                    <label for="razao" class="form-label">Razão Social</label>
+                    <input type="text" class="form-control" name="razaoForm" id="razaoForm">
+                    <small class="d-none" id="erro_razao" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col">
+                    <label for="nome" class="form-label">Nome Fantasia</label>
+                    <input type="text" class="form-control" name="nomeForm" id="nomeForm">
+                    <small class="d-none" id="erro_nome" style="color: red">Preencha o campo</small>
+                </div>
             </div>
             <div class="row">
                 <div class="mb-2 col-12 col-lg-4">
-                    <label for="cpf" class="form-label">CPF</label>
-                    <input type="text" class="form-control" name="cpfForm" id="cpfForm" >
-                    <small class="d-none" id="erro_cpf" style="color: red">Preencha o campo</small>
+                    <label for="cnpj" class="form-label">CNPJ</label>
+                    <input type="number" class="form-control" name="cnpjForm" id="cnpjForm" >
+                    <small class="d-none" id="erro_cnpj" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col-12 col-lg-4">
+                    <label for="inscEst" class="form-label">Inscrição Estadual</label>
+                    <input type="number" class="form-control" name="inscEstForm" id="inscEstForm" >
+                    <small class="d-none" id="erro_inscEst" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col-12 col-lg-4">
+                    <label for="inscMun" class="form-label">Inscrição Municipal</label>
+                    <input type="number" class="form-control" name="inscMunForm" id="inscMunForm" >
+                    <small class="d-none" id="erro_inscMun" style="color: red">Preencha o campo</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-2 col-12 col-lg-4">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="number" class="form-control" name="cepForm" id="cepForm" >
+                    <small class="d-none" id="erro_cep" style="color: red">Preencha o campo</small>
                 </div>
                 <div class="mb-2 col-12 col-lg-3">
                     <label for="cpf" class="form-label">Estado</label>
@@ -55,6 +79,23 @@ include "../inicio/cabecalho.php";
                     <small class="d-none" id="erro_cidade" style="color: red">Preencha o campo</small>
                 </div>
             </div>
+            <div class="row">
+                <div class="mb-2 col-12 col-lg-7">
+                    <label for="logradouro" class="form-label">Logradouro</label>
+                    <input type="tel" class="form-control" name="logradouroForm" id="logradouroForm">
+                    <small class="d-none" id="erro_logradouro" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col">
+                    <label for="numero" class="form-label">Número</label>
+                    <input type="text" class="form-control" name="numeroForm" id="numeroForm">
+                    <small class="d-none" id="erro_numero" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col">
+                    <label for="complemento" class="form-label">Complemento</label>
+                    <input type="text" class="form-control" name="complementoForm" id="complementoForm">
+                </div>
+            </div>
+
 
             <div class="row">
                 <div class="mb-2 col">
@@ -72,30 +113,31 @@ include "../inicio/cabecalho.php";
             </div>
 
             <div class="row">
-                <div class="mb-2 col">
-                    <label for="dataNasc" class="form-label">Data de Nascimento</label>
-                    <input type="date" class="form-control" name="dataNascForm" id="dataNascForm">
-                    <small class="d-none" id="erro_dt_nasc" style="color: red">Preencha o campo</small>
-
+                <div class="mb-2 col-12 col-lg-7">
+                    <label for="responsavel" class="form-label">Responsável</label>
+                    <input type="text" class="form-control" name="responsavelForm" id="responsavelForm">
+                    <small class="d-none" id="erro_responsavel" style="color: red">Preencha o campo</small>
+                </div>
+                <div class="mb-2 col-6 col-lg-2">
+                    <label for="fundacao" class="form-label">Ano de Fundação</label>
+                    <input type="text" class="form-control" name="fundacaoForm" id="fundacaoForm">
+                    <small class="d-none" id="erro_fundacao" style="color: red">Preencha o campo</small>
                 </div>
                 <div class="mb-2 col">
-                    <label for="funcaoNasc" class="form-label">Função</label>
-                    <select class="form-select" name="funcaoForm" id="funcaoForm" aria-label="Default select example">
-                        <option selected disabled>Selecione a Função</option>
-                        <?php
-                        $funcoes = $obj->PesquisaLoop("funcoes", "id_funcao, funcao");
-                        foreach($funcoes as $funcao){
-                        ?>
-                        <option value="<?php echo $funcao['id_funcao']?>"><?php echo $funcao['funcao']?></option>                        
-                        <?php
-                        }
-                        ?>
-                        ?>
+                    <label for="sit" class="form-label">Situação Cadastral</label>
+                    <select class="form-select" name="sitForm" id="sitForm" aria-label="Default select example">
+                        <option selected disabled>Selecione uma opção</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inapto">Inapto</option>
+                        <option value="suspenso">Suspenso</option>
+                        <option value="baixado ou cancelado">Baixado ou Cancelado</option>
+                        <option value="nulo">Nulo</option>
+                         
                     </select>
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary" id="btnForm" onclick="validarForm()">Criar Usuário</button>
+            <button type="button" class="btn btn-primary" id="btnForm" onclick="validarForm()">Adicionar Cliente</button>
         </form>
         
     </div>
@@ -164,11 +206,11 @@ include "../inicio/cabecalho.php";
                     ativarModalAlert("Erro!", "Não foi possível cadastrar o usuário, tente novamente.");
                     // desbloquearBotao("#btnForm");
                 } else if ($.trim(data) == 1) {
-                    ativarModalAlert("Sucesso", "Usuário cadastrado com sucesso.");
+                    ativarModalAlert("Sucesso", "Cliente cadastrado com sucesso.");
                     // bloquearBotao("#btnForm", false);
                     
                     // Ao fechar o modal, ir para a lista de usuários.
-                    $('#alertModal').on('hidden.bs.modal', function () {ev("ver_usuarios.php")});
+                    $('#alertModal').on('hidden.bs.modal', function () {ev("ver_clientes.php")});
                 } else {
                     ativarModalAlert("Atenção!", "Ocorreu algum erro inesperado, tente novamente.");
                     // desbloquearBotao("#btnForm");

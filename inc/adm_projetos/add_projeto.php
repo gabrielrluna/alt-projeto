@@ -2,78 +2,62 @@
 include "../inicio/cabecalho.php";
 ?>
 
-    <h2>Adicionar Usuário</h2>
+    <h2>Criar Projeto</h2>
     <div>
-        <form action="add_usuario2.php" method="POST" id="enviaForm">
+        <form action="add_projeto2.php" method="POST" id="enviaForm">
             <div class="mb-2">
                 <label for="nomeProjeto" class="form-label">Nome do Projeto</label>
                 <input type="text" class="form-control" placeholder="Dê um nome para o identificar o projeto que será criado" name="nomeProjetoForm" id="nomeProjetoForm">
                 <small class="d-none" id="erro_nome_projeto" style="color: red">Preencha o campo</small>
             </div>
-            <div class="row">
-                <div class="mb-2 col-12 col-lg-4">
-                    <label for="cpf" class="form-label">Profissional</label>
-                    <input type="text" class="form-control" name="cpfForm" id="cpfForm" >
-                    <small class="d-none" id="erro_cpf" style="color: red">Preencha o campo</small>
-                </div>
-                <div class="mb-2 col-12 col-lg-3">
-                    <label for="cpf" class="form-label">Estado</label>
-                    <select class="form-select" name="estadoForm" id="estadoForm" aria-label="Default select example">
-                        <option selected disabled>Selecione o Estado</option>
-                        <option value="1">Web Designer</option>
-                        <option value="2">Gestor de Tráfego Pago</option>
-                        <option value="3">Copywritter</option>
-                        <option value="4">Outro</option>
-                    </select>
-                </div>
-                <div class="mb-2 col-12 col-lg-5">
-                    <label for="cidade" class="form-label">Cidade</label>
-                    <input type="text" class="form-control" name="cidadeForm" id="cidadeForm" >
-                    <small class="d-none" id="erro_cidade" style="color: red">Preencha o campo</small>
-                </div>
+            <div class="mb-2">
+                <label for="clienteProjeto" class="form-label">Cliente</label>
+                <select class="form-select" name="clienteForm" id="clienteForm" aria-label="Default select example">
+                <option selected disabled>Selecione o Cliente</option>
+                <?php
+                $clientes = $obj->PesquisaLoop("clientes", "id_cliente, nome_fantasia");
+                foreach($clientes as $cliente){
+                ?>
+                <option value="<?php echo $cliente['id_cliente']?>"><?php echo $cliente['nome_fantasia']?></option>                        
+                <?php
+                }
+                ?>
+            </select>
+
+            </div>
+            <div class="mb-2">
+                <label for="cpf" class="form-label">Profissional</label>
+                <select class="form-select" name="profissionalForm" id="profissionalForm" aria-label="Default select example">
+                    <option selected disabled>Selecione o Profissional</option>
+                    <?php
+                    $usuarios = $obj->PesquisaLoop("usuarios INNER JOIN funcoes ON usuarios.id_funcao = funcoes.id_funcao", "usuarios.id, usuarios.nome, usuarios.id_funcao, funcoes.funcao");
+                    foreach($usuarios as $usuario){
+                    ?>
+                    <option value="<?php echo $usuario['id']?>"><?php echo $usuario['nome']." - ".$usuario['funcao'] ?></option>                        
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="mb-2 col">
+                <label for="prazo" class="form-label">Prazo</label>
+                <input type="date" class="form-control" name="prazoForm" id="prazoForm">
+                <small class="d-none" id="erro_prazo" style="color: red">Preencha o campo</small>
+            </div>
+            <div class="mb-2 col">
+                <label for="descricao">Descrição do Projeto</label>
+                <textarea class="form-control" name="descricaoForm" id="descricaoForm"></textarea>
+
             </div>
 
-            <div class="row">
-                <div class="mb-2 col">
-                    <label for="telefone" class="form-label">Telefone</label>
-                    <input type="tel" class="form-control" name="telefoneForm" id="telefoneForm">
-                    <small class="d-none" id="erro_telefone" style="color: red">Preencha o campo</small>
-
-                </div>
-                <div class="mb-2 col">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" name="emailForm" id="emailForm">
-                    <small class="d-none" id="erro_email" style="color: red">Preencha o campo</small>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="mb-2 col">
-                    <label for="prazo" class="form-label">Prazo</label>
-                    <input type="date" class="form-control" name="prazoForm" id="prazoForm">
-                    <small class="d-none" id="erro_prazo" style="color: red">Preencha o campo</small>
-
-                </div>
-                <div class="mb-2 col">
-                    <label for="funcaoNasc" class="form-label">Função</label>
-                    <select class="form-select" name="funcaoForm" id="funcaoForm" aria-label="Default select example">
-                        <option selected disabled>Selecione a Função</option>
-                        <option value="1">Web Designer</option>
-                        <option value="2">Gestor de Tráfego Pago</option>
-                        <option value="3">Copywritter</option>
-                        <option value="4">Outro</option>
-                    </select>
-                </div>
-            </div>
-
-            <button type="button" class="btn btn-primary" id="btnForm" onclick="validarForm()">Criar Usuário</button>
+            <button type="button" class="btn btn-primary" id="btnForm" onclick="validarForm()">Criar Projeto</button>
         </form>
         
     </div>
     
 
     <script>
+
 
         function validarForm() {
             var erro = false; // Verifica se tem erro.
