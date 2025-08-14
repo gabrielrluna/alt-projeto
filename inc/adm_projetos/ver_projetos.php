@@ -3,6 +3,15 @@ include "../inicio/cabecalho.php";
 
 $projetos = $obj->PesquisaLoop("projetos INNER JOIN usuarios ON projetos.id_profissional = usuarios.id", "projetos.id_projeto, projetos.dt_cadastro, projetos.id_profissional, projetos.prazo, projetos.situacao, projetos.nome_projeto, projetos.id_cliente, usuarios.nome");
 
+// date_default_timezone_set('America/Sao_Paulo');
+// $hoje = date("Y-m-d H:i:s");
+// echo $hoje;
+
+$hoje = new DateTime();
+// echo $hoje;
+
+
+
 
 ?>
 
@@ -56,13 +65,25 @@ $projetos = $obj->PesquisaLoop("projetos INNER JOIN usuarios ON projetos.id_prof
                 foreach($projetos as $projeto){
                 $idCliente = $projeto['id_cliente'];
                 $clientes = $obj->Pesquisa("clientes", "id_cliente, nome_fantasia","id_cliente = {$idCliente}");
+                $prazo = $projeto['prazo'];
+                $dtLimite = new DateTime($prazo);
+                $intervalo = $hoje->diff($dtLimite);
                 ?>
                 <tr class="align-middle">
                     <th scope="row"><?php echo $projeto['id_projeto'] ?></th>
                     <td><?php echo $projeto['nome_projeto'] ?></td>
                     <td><?php echo $clientes['nome_fantasia'] ?></td>
                     <td><?php echo $projeto['nome'] ?></td>
-                    <td><?php echo $projeto['dt_cadastro'] ?></td>
+                    <?php
+                        if($intervalo->d <1){ ?>
+                            <td style="color: red">Último dia <i class="bi bi-exclamation-octagon"></i></td>
+                    <?php } elseif ($intervalo->d == 1) { ?>
+                            <td style="color: red">Falta 1 dia! <i class="bi bi-exclamation-octagon"></i></td>
+                    <?php } elseif($intervalo->d <=5) {?>
+                            <td style="color: red">Faltam <?php echo $intervalo->d ?> dias <i class="bi bi-exclamation-octagon"></i></td>
+                    <?php } else {?>
+                            <td >Faltam <?php echo $intervalo->d ?> dias  </i></td>
+                    <?php } ?>
                     <td>10</td>
 
 

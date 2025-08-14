@@ -22,19 +22,21 @@ include("inc/inicio/ev.php");
         <div class="row col-4 bg-light align-items-center" style="height: 100vh">
             <div class="">
                 <img src="assets/logo/487239370_841478978171287_3989743103304765641_n.jpg" class="img-fluid" alt="">
-                <form>
+                <form action="processa_login.php" method="post">
                     <div class="mb-3">
-                        <label for="emailForm" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailForm" aria-describedby="emailHelp">
+                        <label for="login" class="form-label">Login</label>
+                        <input type="text" class="form-control" id="login" required>
                         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
-                        <label for="senhaEmail" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senhaEmail">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" required>
                     </div>
 
+                    <button type="submit" class="btn btn" style="background: #512354; color: #f1cc64">Entrar</button>
 
-                    <a type="button" onclick="login()" class="btn btn" style="background: #512354; color: #f1cc64">Entrar</a>
+
+                    <!-- <a type="button" onclick="login()" class="btn btn" style="background: #512354; color: #f1cc64">Entrar</a> -->
                 </form>
             </div>
         </div>
