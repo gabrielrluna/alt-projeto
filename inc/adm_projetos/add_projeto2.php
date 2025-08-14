@@ -6,7 +6,7 @@ $obj = new SQLHelper(4);
 
 $nomeProjeto    = antiInjection($_POST["nomeProjetoForm"]);
 $idProfissional = antiInjection($_POST["profissionalForm"]);
-$idCliente      = antiInjection($_POST["profissionalForm"]);
+$idCliente      = antiInjection($_POST["clienteForm"]);
 $prazo          = antiInjection($_POST["prazoForm"]);
 // $idFuncao    = antiInjection($_POST["funcaoForm"]);
 
@@ -14,9 +14,10 @@ $prazo          = antiInjection($_POST["prazoForm"]);
 
 
 $param['nome_projeto']    = toString($nomeProjeto);
-$param['id_profissional'] = toString($cpf);
-$param['id_cliente']      = toString($telefone);
-$param['prazo']           = toString($email);
+$param['id_profissional'] = toString($idProfissional);
+$param['id_cliente']      = toString($idCliente);
+$param['prazo']           = toString($prazo);
+
 $param['situacao']        = 1;
 
 

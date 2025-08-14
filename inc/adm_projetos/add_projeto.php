@@ -64,32 +64,32 @@ include "../inicio/cabecalho.php";
             var id = "#btnForm"; // ID do botão.
             // bloquearBotao(id);
 
-            // Verificando Usuario
-            var nome = $("#nomeForm").val();
-            if (nome == "") {
-                $("#erro_nome").removeClass("d-none");
-                erro = true;
-            } else {
-                $("#erro_nome").addClass("d-none");
-            }
+            // // Verificando Usuario
+            // var nome = $("#nomeForm").val();
+            // if (nome == "") {
+            //     $("#erro_nome").removeClass("d-none");
+            //     erro = true;
+            // } else {
+            //     $("#erro_nome").addClass("d-none");
+            // }
 
-            // Verificando CPF
-            var cpf = $("#cpfForm").val();
-            if (cpf == "") {
-                $("#erro_cpf").removeClass("d-none");
-                erro = true;
-            } else {
-                $("#erro_cpf").addClass("d-none");
-            }
+            // // Verificando CPF
+            // var cpf = $("#cpfForm").val();
+            // if (cpf == "") {
+            //     $("#erro_cpf").removeClass("d-none");
+            //     erro = true;
+            // } else {
+            //     $("#erro_cpf").addClass("d-none");
+            // }
 
-            // Verificando E-mail
-            var email = $("#emailForm").val().trim();
-            if (email.length < 3) {
-                $("#erro_email").removeClass("d-none");
-                erro = true;
-            } else {
-                $("#erro_email").addClass("d-none");
-            }
+            // // Verificando E-mail
+            // var email = $("#emailForm").val().trim();
+            // if (email.length < 3) {
+            //     $("#erro_email").removeClass("d-none");
+            //     erro = true;
+            // } else {
+            //     $("#erro_email").addClass("d-none");
+            // }
 
             // SUBMIT do formulário caso não de erro.
             if (erro) {
@@ -124,7 +124,7 @@ include "../inicio/cabecalho.php";
                     // bloquearBotao("#btnForm", false);
                     
                     // Ao fechar o modal, ir para a lista de usuários.
-                    $('#alertModal').on('hidden.bs.modal', function () {ev("ver_usuarios.php")});
+                    $('#alertModal').on('hidden.bs.modal', function () {ev("ver_projetos.php")});
                 } else {
                     ativarModalAlert("Atenção!", "Ocorreu algum erro inesperado, tente novamente.");
                     // desbloquearBotao("#btnForm");

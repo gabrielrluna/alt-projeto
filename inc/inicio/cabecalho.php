@@ -48,7 +48,7 @@ include("ev.php");
                 <span class="descricao">Projetos <i class="bi bi-caret-down-fill"></i></span>
             </a>
             <div class="sub-menu collapse" id="projetos">
-                <a href="index.php" class="nav-link">
+                <a href="../adm_projetos/ver_projetos.php" class="nav-link">
                     <span class="icon">
                         <i class="bi bi-folder-symlink"></i>
                     </span>
