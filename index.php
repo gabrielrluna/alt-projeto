@@ -24,8 +24,8 @@ include("inc/inicio/ev.php");
                 <img src="assets/logo/487239370_841478978171287_3989743103304765641_n.jpg" class="img-fluid" alt="">
                 <form action="processa_login.php" method="post">
                     <div class="mb-3">
-                        <label for="login" class="form-label">Login</label>
-                        <input type="text" class="form-control" id="login" name="login" required>
+                        <label for="acesso" class="form-label">Login</label>
+                        <input type="text" class="form-control" id="acesso" name="acesso" required>
                         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
