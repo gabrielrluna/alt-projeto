@@ -25,12 +25,12 @@ include("inc/inicio/ev.php");
                 <form action="processa_login.php" method="post">
                     <div class="mb-3">
                         <label for="login" class="form-label">Login</label>
-                        <input type="text" class="form-control" id="login" required>
+                        <input type="text" class="form-control" id="login" name="login" required>
                         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
                         <label for="senha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senha" required>
+                        <input type="password" class="form-control" id="senha" name="senha" required>
                     </div>
 
                     <button type="submit" class="btn btn" style="background: #512354; color: #f1cc64">Entrar</button>
