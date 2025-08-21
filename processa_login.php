@@ -24,8 +24,8 @@ if(isset($_POST['acesso']) || isset($_POST['senha'])){
                     session_start();
                }
 
-               $_SESSION['user'] = $usuario['id'];
-               $_SESSION['name'] = $usuario['nome'];
+               $_SESSION['id'] = $usuario['id'];
+               $_SESSION['nome'] = $usuario['nome'];
                $_SESSION['tipo'] = $usuario['tipo_usuario'];
 
                header("Location: inc/inicio/index.php");

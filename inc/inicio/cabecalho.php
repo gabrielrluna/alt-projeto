@@ -4,6 +4,14 @@ include_once("../../bibliotecas/funcoes.php");
 include_once("../../bibliotecas/SQLHelper.php");
 $obj = new SQLHelper(4);
 include("ev.php");
+
+include("../../protect.php")
+
+
+
+// $id = $_SESSION['user'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -146,6 +154,9 @@ include("ev.php");
                     <span class="descricao">Configurações</span>
                 </a>            
         </nav>
+        <div>
+            <a href="../../logout.php" class="btn btn-warning" type="button">Sair</a>
+        </div>
     </div>
 
     
