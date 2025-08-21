@@ -15,8 +15,7 @@ $hoje = new DateTime();
 
 ?>
 
-
-
+<section id="geral" >
     <div class="row">
         <div class="col-6">
             <h2>Projetos</h2>
@@ -69,7 +68,7 @@ $hoje = new DateTime();
                 $dtLimite = new DateTime($prazo);
                 $intervalo = $hoje->diff($dtLimite);
                 ?>
-                <tr class="align-middle">
+                <tr class="align-middle" onclick="verProjeto(<?php echo $projeto['id_projeto']; ?>)">
                     <th scope="row"><?php echo $projeto['id_projeto'] ?></th>
                     <td><?php echo $projeto['nome_projeto'] ?></td>
                     <td><?php echo $clientes['nome_fantasia'] ?></td>
@@ -96,20 +95,30 @@ $hoje = new DateTime();
 
         </tbody>        
     </table>
-    <div id="resultado" class="d-none"></div>
+    </section>
+    
+    <!-- <div id="resultado" class="d-none"></div> -->
 
     <script>
-        function excluir(id){
-                    $("#resultado").load("exc_usuario.php", {i: id}, function (sRetorno) {
-                    if (sRetorno == "1") {
-                        ativarModalAlert("Atenção!", "Usuário excluído com sucesso.");
-                        $('#alertModal').on('hidden.bs.modal', function () {ev("ver_usuarios.php")});
+        function verProjeto(idProjeto){
+            $("#geral").html("");
+            $("#geral").load("ver_projeto.php", {i: idProjeto});
 
-                    } else {
-                        ativarModalAlert("Atenção!", "Algo deu errado. Tente novamente");
-                    }
-                });
-                }
+        }
+
+        function excluir(id){
+            $("#resultado").load("exc_usuario.php", {i: id}, function (sRetorno) {
+            if (sRetorno == "1") {
+                ativarModalAlert("Atenção!", "Usuário excluído com sucesso.");
+                $('#alertModal').on('hidden.bs.modal', function () {ev("ver_usuarios.php")});
+
+            } else {
+                ativarModalAlert("Atenção!", "Algo deu errado. Tente novamente");
+            }
+        });
+        }
+
+
                 
         function excluirUsuario(id){
             modalPergunta("Deseja realmente excluir o usuário?","excluir("+id+")");
