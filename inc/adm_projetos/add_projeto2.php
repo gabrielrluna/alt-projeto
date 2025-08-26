@@ -8,7 +8,7 @@ $nomeProjeto    = antiInjection($_POST["nomeProjetoForm"]);
 $idProfissional = antiInjection($_POST["profissionalForm"]);
 $idCliente      = antiInjection($_POST["clienteForm"]);
 $prazo          = antiInjection($_POST["prazoForm"]);
-// $idFuncao    = antiInjection($_POST["funcaoForm"]);
+$descricao      = antiInjection($_POST["descricaoForm"]);
 
 // die();
 
@@ -16,7 +16,8 @@ $prazo          = antiInjection($_POST["prazoForm"]);
 $param['nome_projeto']    = toString($nomeProjeto);
 $param['id_profissional'] = toString($idProfissional);
 $param['id_cliente']      = toString($idCliente);
-$param['prazo']           = toString($prazo);
+$param['descricao']      = toString($descricao);
+$param['prazo']           = toString($prazo." 23:59:59");
 
 $param['situacao']        = 1;
 

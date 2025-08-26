@@ -3,14 +3,7 @@ include "../inicio/cabecalho.php";
 
 $projetos = $obj->PesquisaLoop("projetos INNER JOIN usuarios ON projetos.id_profissional = usuarios.id", "projetos.id_projeto, projetos.dt_cadastro, projetos.id_profissional, projetos.prazo, projetos.situacao, projetos.nome_projeto, projetos.id_cliente, usuarios.nome");
 
-// date_default_timezone_set('America/Sao_Paulo');
-// $hoje = date("Y-m-d H:i:s");
-// echo $hoje;
-
 $hoje = new DateTime();
-// echo $hoje;
-
-
 
 
 ?>
@@ -74,8 +67,10 @@ $hoje = new DateTime();
                     <td><?php echo $clientes['nome_fantasia'] ?></td>
                     <td><?php echo $projeto['nome'] ?></td>
                     <?php
-                        if($intervalo->d <1){ ?>
-                            <td style="color: red">Último dia <i class="bi bi-exclamation-octagon"></i></td>
+                        if($hoje > $dtLimite){ ?>
+                            <td style="color: red">Prazo Expirado <i class="bi bi-exclamation-octagon"></i></td>
+                    <?php } elseif ($intervalo->d < 1){ ?>
+                            <td style="color: red">Último dia <?php echo $intervalo->d ?> <i class="bi bi-exclamation-octagon"></i></td>
                     <?php } elseif ($intervalo->d == 1) { ?>
                             <td style="color: red">Falta 1 dia! <i class="bi bi-exclamation-octagon"></i></td>
                     <?php } elseif($intervalo->d <=5) {?>
@@ -101,8 +96,8 @@ $hoje = new DateTime();
 
     <script>
         function verProjeto(idProjeto){
-            $("#geral").html("");
-            $("#geral").load("ver_projeto.php", {i: idProjeto});
+            // ev("ver_projeto.php","idProjeto=>"+idProjeto+"&teste=>testeagora");
+            ev("ver_projeto.php","idProjeto=>"+idProjeto);
 
         }
 

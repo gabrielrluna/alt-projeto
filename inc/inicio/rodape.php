@@ -117,8 +117,8 @@
             }
             </script>
 
-
+<!-- 
 <footer class="rodape">
     <p class="m-0">Desenvolvido por Webine - <?php echo date("Y"); ?></p>
-</footer>
+</footer> -->
 </html>
