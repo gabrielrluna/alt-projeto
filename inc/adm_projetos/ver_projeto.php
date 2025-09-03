@@ -13,9 +13,12 @@ $qtdEnvio = count($qtdEnvio);
 if($projeto['situacao'] % 2 == 0){
     $btnClass = "disabled";
     $btnText = "Aguarde avaliação";
+    $aval = 1;
 } else {
     $btnClass = "";
     $btnText  = "Entregar Projeto";
+    $aval = 0;
+
 }
 
 
@@ -36,6 +39,7 @@ if($projeto['situacao'] % 2 == 0){
         </div>
         <div class="d-grid gap-2">
             <button type="button" class=" btn btn-primary <?php echo $btnClass; ?>" <?php echo $btnClass; ?> onclick="entregarProjeto('<?php echo $idProjeto; ?>','<?php echo $cliente['nome_fantasia']; ?>')"><?php echo $btnText; ?></button>
+            <?php if($aval == 1 && $tipoUsuario == 1){?> <button type="button" class="btn btn-primary" onclick="ev('aval_projeto.php','idProjeto=><?php echo $idProjeto;?>&cliente=><?php echo $cliente['nome_fantasia'];?>')">Avaliar Projeto</button><?php } ?>
             <button type="button" class="btn btn-warning" onclick="ev('ver_projetos.php')">Voltar à lista de projetos</button>
         </div>
     </div>
