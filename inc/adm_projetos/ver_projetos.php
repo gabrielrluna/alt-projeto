@@ -55,6 +55,15 @@ $hoje = new DateTime();
 
                 <?php
                 foreach($projetos as $projeto){
+                if($projeto['situacao'] % 2 == 0 && $projeto['situacao'] < 100){
+                    $situacao = "Aguardando avaliação";
+                } else if ($projeto['situacao'] == 100) {
+                    $situacao  = "Projeto Entregue";
+                } else if($projeto['situacao'] % 2 == 1 && $projeto['situacao'] < 100 && $projeto['situacao'] != 1) {
+                    $situacao = "Envio reprovado.";
+                } else if($projeto['situacao'] == 1){
+                    $situacao = "Aguardando envio";
+                }
                 $idCliente = $projeto['id_cliente'];
                 $clientes = $obj->Pesquisa("clientes", "id_cliente, nome_fantasia","id_cliente = {$idCliente}");
                 $prazo = $projeto['prazo'];
@@ -78,7 +87,7 @@ $hoje = new DateTime();
                     <?php } else {?>
                             <td >Faltam <?php echo $intervalo->d ?> dias  </i></td>
                     <?php } ?>
-                    <td>10</td>
+                    <td><?php echo $situacao; ?></td>
 
 
                     <td>

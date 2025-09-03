@@ -1,17 +1,14 @@
 <?php
 include_once("../../bibliotecas/conn.php");
+include("ev.php");
+include("../../protect.php");
 include_once("../../bibliotecas/funcoes.php");
 include_once("../../bibliotecas/SQLHelper.php");
 $obj = new SQLHelper(4);
-include("ev.php");
 
-include("../../protect.php")
-
-
-
-// $id = $_SESSION['user'];
-
-
+$id          = $_SESSION['id'];
+$nome        = $_SESSION['nome'];
+$tipoUsuario = $_SESSION['tipo'];
 ?>
 
 <!DOCTYPE html>

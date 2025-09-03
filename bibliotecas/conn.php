@@ -7,6 +7,8 @@ $dbname = "alt_teste"; // Nome do banco de dados
 // Cria a conexão
 $conn = new mysqli($servidor, $usuario, $senha, $dbname);
 
+
+
 abstract class Conexao{
 	private $_servidor;
 	private $_porta;
